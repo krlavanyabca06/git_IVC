@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Computer Science Professional Overview</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;line-height:1.6;background:#f0f4f8;color:#333;}
+header{background:#004080;color:#fff;}
+.hero{padding:40px 20px;text-align:center;}
+nav{display:flex;justify-content:center;background:#005f99;position:sticky;top:0;z-index:100;}
+nav a{color:#fff;padding:15px 20px;text-decoration:none;transition:background .3s;}
+nav a:hover{background:#004070;}
+main{max-width:1000px;margin:20px auto;padding:0 20px;}
+.card{background:#fff;border-radius:8px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,.1);margin-bottom:30px;}
+h2{color:#005f99;margin-bottom:15px;}
+table{width:100%;border-collapse:collapse;margin-top:10px;}
+th,td{border:1px solid #ccc;padding:8px;text-align:left;}
+th{background:#005f99;color:#fff;}
+input[type="text"]{width:100%;padding:8px;margin:10px 0;border:1px solid #ccc;border-radius:4px;}
+button{padding:10px 20px;font-size:1rem;background:#005f99;color:#fff;border:none;border-radius:4px;cursor:pointer;}
+button:hover{background:#004070;}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;}
+.canvas-container{text-align:center;}
+#jobChart,#salaryChart{max-width:100%;height:auto;border:1px solid #ccc;}
+</style>
+</head>
+<body>
+<header>
+<div class="hero">
+<h1>Computer Science Studies &amp; Careers</h1>
+<p>Academic tracks, career paths, statistics, and institution insights.</p>
+</div>
+<nav>
+<a href="#overview">Overview</a>
+<a href="#courses">Courses</a>
+<a href="#careers">Careers</a>
+<a href="#statistics">Statistics</a>
+<a href="#colleges">Colleges</a>
+<a href="#resources">Resources</a>
+</nav>
+</header>
+<main>
+<section id="overview" class="card">
+<h2>What is Computer Science?</h2>
+<p>Computer science (CS) is the scientific and practical approach to computation and its applications. It involves the study of algorithms, data structures, software development, hardware systems, and theoretical foundations such as computation theory and logic.</p>
+<p>Key branches include:</p>
+<ul>
+<li>Artificial Intelligence &amp; Machine Learning</li>
+<li>Software Engineering</li>
+<li>Computer Systems &amp; Architecture</li>
+<li>Human-Computer Interaction</li>
+<li>Data Science &amp; Big Data</li>
+</ul>
+<p><strong>Why study CS?</strong> Graduates are equipped to build the technologies that power modern life, enjoy high employability, and can work in virtually any industry. CS fosters problem‑solving, logical thinking, and creativity.</p>
+</section>
+<section id="courses" class="card">
+<h2>Academic Courses</h2>
+<p>The following table lists typical subjects in an undergraduate CS programme, along with fees and prerequisites. Use the search box to filter.</p>
+<input type="text" id="courseSearch" placeholder="Search courses..." />
+<table id="course-table">
+<thead>
+<tr><th>Course</th><th>Description</th><th>Prerequisites</th><th>Subjects Covered</th><th>Fees (approx.)</th></tr>
+</thead>
+<tbody>
+<!-- filled by JS -->
+</tbody>
+</table>
+<button id="addCourseBtn">Add custom course</button>
+</section>
+<section id="careers" class="card">
+<h2>Career Paths</h2>
+<p>Salary ranges are indicative and vary by geography and experience.</p>
+<div id="careerGrid" class="grid"></div>
+</section>
+<section id="statistics" class="card">
+<h2>Employment &amp; Salary Statistics</h2>
+<div class="canvas-container">
+<canvas id="jobChart" width="600" height="300"></canvas>
+</div>
+<div class="canvas-container">
+<canvas id="salaryChart" width="600" height="300"></canvas>
+</div>
+<p id="placementInfo"></p>
+</section>
+<section id="colleges" class="card">
+<h2>Recommended Colleges</h2>
+<p>Listed with placement rates and fee structures.</p>
+<table id="college-table">
+<thead><tr><th>Name</th><th>Location</th><th>Placement Rate</th><th>Fee Range</th><th>Programs</th></tr></thead>
+<tbody>
+<!-- filled by JS -->
+</tbody>
+</table>
+</section>
+<section id="resources" class="card">
+<h2>Extra Resources</h2>
+<p>Explore more with online platforms, textbooks, and communities:</p>
+<ul>
+<li><a href="https://www.edx.org/" target="_blank">edX (MIT, Harvard, etc.)</a></li>
+<li><a href="https://www.coursera.org/" target="_blank">Coursera</a></li>
+<li><a href="https://cs50.harvard.edu/" target="_blank">CS50 by Harvard</a></li>
+<li><a href="https://stackoverflow.com/" target="_blank">Stack Overflow community</a></li>
+<li><a href="https://github.com/" target="_blank">GitHub open source projects</a></li>
+</ul>
+</section>
+</main>
+<footer>
+&copy; 2026 Computer Science Mini‑Project
+</footer>
+<script>
+const courses = [
+ {name:'Introduction to Programming',desc:'Fundamental programming concepts',prereq:'None',subjects:['Variables','Control flow','Functions'],fee:'₹40,000 - ₹80,000/yr'},
+ {name:'Data Structures',desc:'Organization of data for efficient access',prereq:'Intro to Programming',subjects:['Arrays','Linked Lists','Trees','Graphs'],fee:'₹50,000 - ₹90,000/yr'},
+ {name:'Algorithms',desc:'Problem-solving using algorithms',prereq:'Data Structures',subjects:['Sorting','Searching','Dynamic Programming'],fee:'₹50,000 - ₹90,000/yr'},
+ {name:'Operating Systems',desc:'Design of OS components',prereq:'Data Structures',subjects:['Processes','Memory','Scheduling'],fee:'₹60,000 - ₹1,00,000/yr'},
+ {name:'Databases',desc:'Data storage and retrieval',prereq:'Intro to Programming',subjects:['SQL','Normalization','Transactions'],fee:'₹50,000 - ₹90,000/yr'},
+ {name:'Computer Networks',desc:'Networking principles and protocols',prereq:'Operating Systems',subjects:['OSI Model','TCP/IP','Routing'],fee:'₹45,000 - ₹85,000/yr'},
+ {name:'Software Engineering',desc:'Software development lifecycle',prereq:'Algorithms',subjects:['Design','Testing','Maintenance'],fee:'₹55,000 - ₹95,000/yr'},
+ {name:'Artificial Intelligence',desc:'Basics of AI and machine learning',prereq:'Algorithms',subjects:['Search','Optimization','Neural Networks'],fee:'₹60,000 - ₹1,00,000/yr'}
+];
+
+function populateCourses() {
+ const tbody = document.querySelector('#course-table tbody');
+ tbody.innerHTML = '';
+ courses.forEach(c=>{
+  const tr = document.createElement('tr');
+  tr.innerHTML = `<td>${c.name}</td>
+  <td>${c.desc}</td>
+  <td>${c.prereq}</td>
+  <td>${c.subjects.join(', ')}</td>
+  <td>${c.fee}</td>`;
+  tbody.appendChild(tr);
+ });
+}
+
+document.getElementById('courseSearch').addEventListener('input', function(){
+ const query = this.value.toLowerCase();
+ document.querySelectorAll('#course-table tbody tr').forEach(row=>{
+  row.style.display = row.textContent.toLowerCase().includes(query) ? '' : 'none';
+ });
+});
+
+document.getElementById('addCourseBtn').addEventListener('click', ()=>{
+ const name = prompt('Course name:');
+ if(name){
+  const desc = prompt('Short description:') || '';
+  const prereq = prompt('Prerequisites:') || 'None';
+  const subjects = prompt('Subjects (comma separated):')?.split(',').map(s=>s.trim()) || [];
+  const fee = prompt('Approx fee:') || '';
+  courses.push({name,desc,prereq,subjects,fee});
+  populateCourses();
+ }
+});
+
+const careers = [
+ {title:'Software Engineer',desc:'Develop applications for web/mobile/desktop.',salaryLow:600000,salaryHigh:1500000,avg:950000},
+ {title:'Data Scientist',desc:'Extract insights from data.',salaryLow:650000,salaryHigh:1600000,avg:1050000},
+ {title:'Network Administrator',desc:'Maintain enterprise networks.',salaryLow:500000,salaryHigh:1200000,avg:800000},
+ {title:'AI/ML Engineer',desc:'Build machine learning systems.',salaryLow:700000,salaryHigh:1800000,avg:1100000},
+ {title:'Cybersecurity Analyst',desc:'Protect systems and data from threats.',salaryLow:550000,salaryHigh:1400000,avg:900000},
+ {title:'Cloud Architect',desc:'Design cloud infrastructure.',salaryLow:800000,salaryHigh:2000000,avg:1300000},
+ {title:'DevOps Engineer',desc:'Automate development workflows.',salaryLow:600000,salaryHigh:1600000,avg:1100000}
+];
+
+function populateCareers(){
+ const container=document.getElementById('careerGrid');
+ container.innerHTML='';
+ careers.forEach(c=>{
+  const card=document.createElement('div');
+  card.className='card';
+  card.innerHTML=`<h3>${c.title}</h3>
+   <p>${c.desc}</p>
+   <p><strong>Salary:</strong> ${c.salaryLow.toLocaleString()} – ${c.salaryHigh.toLocaleString()}</p>
+   <p><strong>Avg:</strong> ${c.avg.toLocaleString()}</p>`;
+  container.appendChild(card);
+ });
+}
+
+const jobStats=[
+ {year:2018,openings:50000},
+ {year:2019,openings:55000},
+ {year:2020,openings:60000},
+ {year:2021,openings:65000},
+ {year:2022,openings:70000},
+ {year:2023,openings:75000}
+];
+
+const salaryStats={min:500000,max:2000000,avg:1100000,placementRate:0.88};
+
+function drawJobsChart(){
+ const canvas=document.getElementById('jobChart');
+ const ctx=canvas.getContext('2d');
+ const w=canvas.width, h=canvas.height;
+ ctx.clearRect(0,0,w,h);
+ const max = Math.max(...jobStats.map(j=>j.openings));
+ const barWidth = w / (jobStats.length*2);
+ jobStats.forEach((j,i)=>{
+  const barH = (j.openings/max)*(h-40);
+  const x = i * barWidth * 2 + barWidth/2;
+  ctx.fillStyle='#005f99';
+  ctx.fillRect(x, h-barH-20, barWidth, barH);
+  ctx.fillStyle='#333';
+  ctx.fillText(j.year, x, h-5);
+ });
+ ctx.fillStyle='#333';
+ ctx.fillText('Job openings per year', 10, 15);
+}
+
+function drawSalaryChart(){
+ const canvas=document.getElementById('salaryChart');
+ const ctx=canvas.getContext('2d');
+ const w=canvas.width, h=canvas.height;
+ ctx.clearRect(0,0,w,h);
+ const values=[salaryStats.min,salaryStats.avg,salaryStats.max];
+ const labels=['Min','Avg','Max'];
+ const maxVal=Math.max(...values);
+ const barWidth=w/6;
+ values.forEach((val,i)=>{
+  const barH=(val/maxVal)*(h-40);
+  const x = i*(barWidth*2)+barWidth;
+  ctx.fillStyle='#004070';
+  ctx.fillRect(x, h-barH-20, barWidth, barH);
+  ctx.fillStyle='#333';
+  ctx.fillText(labels[i], x, h-5);
+  ctx.fillText('₹'+val.toLocaleString('en-IN'), x, h-barH-25);
+ });
+ ctx.fillText('Salary statistics (₹)',10,15);
+} 
+
+const colleges=[
+ {name:'Massachusetts Institute of Technology',loc:'Cambridge, MA',placement:0.98,fee:'₹4,50,000/yr (approx)',programs:'CS, AI, ML'},
+ {name:'Stanford University',loc:'Stanford, CA',placement:0.97,fee:'₹4,40,000/yr (approx)',programs:'CS, AI, Systems'},
+ {name:'Carnegie Mellon University',loc:'Pittsburgh, PA',placement:0.96,fee:'₹4,20,000/yr (approx)',programs:'CS, Robotics, Security'},
+ {name:'Indian Institute of Technology, Bombay',loc:'Mumbai, India',placement:0.95,fee:'₹2,00,000/yr',programs:'CS, AI, Systems'},
+ {name:'Indian Institute of Technology, Delhi',loc:'Delhi, India',placement:0.94,fee:'₹2,10,000/yr',programs:'CS, Data Science'},
+ {name:'National Institute of Technology, Trichy',loc:'Trichy, India',placement:0.92,fee:'₹1,80,000/yr',programs:'CS, Software Engg.'},
+ {name:'Indian Institute of Technology, Madras',loc:'Chennai, India',placement:0.93,fee:'₹2,05,000/yr',programs:'CS, Systems'},
+ {name:'Indian Institute of Science',loc:'Bengaluru, India',placement:0.94,fee:'₹2,50,000/yr',programs:'CS, Research'}
+];
+
+function populateColleges(){
+ const tbody=document.querySelector('#college-table tbody');
+ tbody.innerHTML='';
+ colleges.forEach(c=>{
+  const tr=document.createElement('tr');
+  tr.innerHTML=`<td>${c.name}</td><td>${c.loc}</td><td>${(c.placement*100).toFixed(1)}%</td><td>${c.fee}</td><td>${c.programs}</td>`;
+  tbody.appendChild(tr);
+ });
+}
+
+window.onload=()=>{
+ populateCourses();
+ populateCareers();
+ populateColleges();
+ drawJobsChart();
+ drawSalaryChart();
+ document.getElementById('placementInfo').textContent=`Typical CS placement rate: ${(salaryStats.placementRate*100).toFixed(1)}%`;
+};
+</script>
+</body>
+</html>
